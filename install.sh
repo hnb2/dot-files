@@ -1,24 +1,32 @@
 #!/bin/bash
-# Tools I use everyday at work
+# This script will install all the tools I use at work or home, it
+# will most likely overwrite everything you love and care about.
+# Better launch this on a fresh install...
 
 #The repository for downloaded softwares
 MY_ENV=~/Dev
+CUR_PATH=`pwd`
 
 if [ ! -d $MY_ENV ]
 then
     mkdir -p $MY_ENV
 fi
 
-#Install the default tools
+###########################
+#Install the default tools#
+###########################
 sudo apt-get install -y ack-grep meld zsh tmux curl htop
 
-#Install GIT from sources
-sudo apt-get remove git git-core
+###########################
+#Install GIT from sources #
+###########################
+sudo apt-get remove -y git git-core
 sudo apt-get install -y build-essential libssl-dev \
     libcurl4-gnutls-dev libexpat1-dev gettext unzip
 
 cd $MY_ENV
-curl https://github.com/git/git/archive/v2.2.1.zip -o git.zip -s
+echo "Downloading GIT..."
+curl -LSso git.zip https://github.com/git/git/archive/v2.2.1.zip
 unzip git.zip
 rm git.zip
 cd git-*
@@ -26,24 +34,30 @@ make prefix=/usr/local all
 sudo make prefix=/usr/local install
 
 #Use my git config
-ln -s `pwd`/.gitconfig $HOME
+rm  ~/.gitconfig
+ln -s "$CUR_PATH/.gitconfig" $HOME
 
-#Make zsh the default shell
+###########################
+# Configure ZSH           #
+###########################
 chsh -s /bin/zsh
 
 #Install oh-my-zsh
 curl -L http://install.ohmyz.sh | sh
 
-#Install VIM from sources
+###########################
+#Install VIM from sources #
+###########################
 sudo apt-get install -y libncurses5-dev libgnome2-dev libgnomeui-dev \
     libgtk2.0-dev libatk1.0-dev libbonoboui2-dev \
     libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev \
     ruby-dev mercurial
 
-sudo apt-get remove vim vim-runtime gvim vim-tiny \
+sudo apt-get remove -y vim vim-runtime gvim vim-tiny \
     vim-common vim-gui-common
 
 cd $MY_ENV
+echo "Downloading VIM..."
 hg clone https://code.google.com/p/vim/
 cd vim
 ./configure --with-features=huge \
@@ -63,7 +77,7 @@ sudo update-alternatives --install /usr/bin/vi vi /usr/bin/vim 1
 sudo update-alternatives --set vi /usr/bin/vim
 
 #Use my vimrc file
-ln -s `pwd`/.vimrc $HOME
+ln -s "$CUR_PATH/.vimrc" $HOME
 
 #Install pathogen
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
