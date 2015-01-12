@@ -19,3 +19,5 @@ get updated too.
  * Get my .zshrc configuration without overwriting the existing one,
    like aliases, variables exported, ...
  * Take the installation path as a parameter in install.sh
+ * Import tmux configuration
+ * Install the following VIM plugins: YouCompleteMe, cscope-maps
