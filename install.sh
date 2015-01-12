@@ -1,7 +1,13 @@
+#!/bin/bash
 # Tools I use everyday at work
 
 #The repository for downloaded softwares
 MY_ENV=~/Dev
+
+if [ ! -d $MY_ENV ]
+then
+    mkdir -p $MY_ENV
+fi
 
 #Install the default tools
 sudo apt-get install -y ack-grep meld zsh tmux curl htop
