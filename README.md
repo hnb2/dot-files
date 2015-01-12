@@ -8,11 +8,12 @@ tools I need for my everyday task a software engineer
 
 #How
 
-Either copy manually the . files or run install.sh
+Either copy manually the . files or run `./install.sh`
 
 #TODO
 
-Use ln instead of cp for the configuration files in
+ * Use `ln` instead of `cp` for the configuration files in
 the install script, that way when updating this
 repository, the configuration files in my home will
 get updated too.
+ * Get my .zshrc configuration without overwriting the existing one
