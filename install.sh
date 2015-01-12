@@ -26,7 +26,7 @@ make prefix=/usr/local all
 sudo make prefix=/usr/local install
 
 #Use my git config
-cp .gitconfig ~/
+ln -s `pwd`/.gitconfig $HOME
 
 #Make zsh the default shell
 chsh -s /bin/zsh
@@ -63,7 +63,7 @@ sudo update-alternatives --install /usr/bin/vi vi /usr/bin/vim 1
 sudo update-alternatives --set vi /usr/bin/vim
 
 #Use my vimrc file
-cp .vimrc ~
+ln -s `pwd`/.vimrc $HOME
 
 #Install pathogen
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
