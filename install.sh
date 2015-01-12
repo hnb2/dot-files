@@ -18,7 +18,7 @@ sudo apt-get install -y build-essential libssl-dev \
     libcurl4-gnutls-dev libexpat1-dev gettext unzip
 
 cd $MY_ENV
-wget https://github.com/git/git/archive/v2.2.1.zip -o git.zip
+curl https://github.com/git/git/archive/v2.2.1.zip -o git.zip -s
 unzip git.zip
 rm git.zip
 cd git-*
