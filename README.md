@@ -16,4 +16,6 @@ Either copy manually the . files or run `./install.sh`
 the install script, that way when updating this
 repository, the configuration files in my home will
 get updated too.
- * Get my .zshrc configuration without overwriting the existing one
+ * Get my .zshrc configuration without overwriting the existing one,
+   like aliases, variables exported, ...
+ * Take the installation path as a parameter in install.sh
