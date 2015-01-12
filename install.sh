@@ -45,6 +45,12 @@ chsh -s /bin/zsh
 #Install oh-my-zsh
 curl -L http://install.ohmyz.sh | sh
 
+#Disable the auto naming of the windows (tmux conflict)
+sed -i 's/#DISABLE_AUTO_TITLE="true"/DISABLE_AUTO_TITLE="true"/g' $HOME/.zshrc
+
+#Alias to shorten the call to ack-grep
+echo 'alias ack="ack-grep"' >> $HOME/.zshrc
+
 ###########################
 #Install VIM from sources #
 ###########################

@@ -12,8 +12,7 @@ Either copy manually the . files or run `./install.sh`
 
 #TODO
 
- * Get my .zshrc configuration without overwriting the existing one,
-   like aliases, variables exported, ...
  * Take the installation path as a parameter in install.sh
  * Import tmux configuration
  * Install the following VIM plugins: YouCompleteMe, cscope-maps
+ * Add the packages for the linters: pylint, jshint
