@@ -1,6 +1,9 @@
 "set line number
 set nu
 
+"set paste mode
+set paste
+
 "Change working directory of VIM to the directory of the file opened
 set autochdir
 
@@ -45,7 +48,6 @@ elseif has("cmdline_info")
     set ruler " display cursor position
 endif
 
-"filetype plugin indent on
 filetype plugin on
 
 execute pathogen#infect()
