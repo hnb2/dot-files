@@ -3,20 +3,20 @@
 # will most likely overwrite everything you love and care about.
 # Better launch this on a fresh install...
 
-CUR_PATH=`pwd`
+CUR_PATH=$(pwd)
 
 #The default repository for downloaded softwares
 MY_ENV=~/Dev
 if [ -z "$1" ]
 then
-    echo 'No path given, will use the default one: $MY_ENV'
+    echo "No path given, will use the default one: $MY_ENV"
 else
-    $MY_ENV=$1
+    MY_ENV=$1
 fi
 
-if [ ! -d $MY_ENV ]
+if [ ! -d "$MY_ENV" ]
 then
-    mkdir -p $MY_ENV
+    mkdir -p "$MY_ENV"
 fi
 
 ###########################
@@ -31,7 +31,7 @@ sudo apt-get remove -y git git-core
 sudo apt-get install -y build-essential libssl-dev \
     libcurl4-gnutls-dev libexpat1-dev gettext unzip
 
-cd $MY_ENV
+cd "$MY_ENV"
 echo "Downloading GIT..."
 curl -LSso git.zip https://github.com/git/git/archive/v2.2.1.zip
 unzip git.zip
@@ -42,7 +42,7 @@ sudo make prefix=/usr/local install
 
 #Use my git config
 rm  ~/.gitconfig
-ln -s "$CUR_PATH/.gitconfig" $HOME
+ln -s "$CUR_PATH/.gitconfig" "$HOME"
 
 ###########################
 # Configure ZSH           #
@@ -53,10 +53,10 @@ chsh -s /bin/zsh
 curl -L http://install.ohmyz.sh | sh
 
 #Disable the auto naming of the windows (tmux conflict)
-sed -i 's/#DISABLE_AUTO_TITLE="true"/DISABLE_AUTO_TITLE="true"/g' $HOME/.zshrc
+sed -i 's/#DISABLE_AUTO_TITLE="true"/DISABLE_AUTO_TITLE="true"/g' "$HOME/.zshrc"
 
 #Alias to shorten the call to ack-grep
-echo 'alias ack="ack-grep"' >> $HOME/.zshrc
+echo 'alias ack="ack-grep"' >> "$HOME/.zshrc"
 
 ###########################
 #Install VIM from sources #
@@ -69,7 +69,7 @@ sudo apt-get install -y libncurses5-dev libgnome2-dev libgnomeui-dev \
 sudo apt-get remove -y vim vim-runtime gvim vim-tiny \
     vim-common vim-gui-common
 
-cd $MY_ENV
+cd "$MY_ENV"
 echo "Downloading VIM..."
 hg clone https://code.google.com/p/vim/
 cd vim
@@ -90,7 +90,7 @@ sudo update-alternatives --install /usr/bin/vi vi /usr/bin/vim 1
 sudo update-alternatives --set vi /usr/bin/vim
 
 #Use my vimrc file
-ln -s "$CUR_PATH/.vimrc" $HOME
+ln -s "$CUR_PATH/.vimrc" "$HOME"
 
 #Install pathogen
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
