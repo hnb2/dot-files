@@ -14,7 +14,8 @@ sudo apt-get install -y ack-grep meld zsh tmux curl htop
 
 #Install GIT from sources
 sudo apt-get remove git git-core
-sudo apt-get install -y build-essential libssl-dev libcurl4-gnutls-dev libexpat1-dev gettext unzip
+sudo apt-get install -y build-essential libssl-dev \
+    libcurl4-gnutls-dev libexpat1-dev gettext unzip
 
 cd $MY_ENV
 wget https://github.com/git/git/archive/v2.2.1.zip -o git.zip
@@ -38,7 +39,8 @@ sudo apt-get install -y libncurses5-dev libgnome2-dev libgnomeui-dev \
     libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev \
     ruby-dev mercurial
 
-sudo apt-get remove vim vim-runtime gvim vim-tiny vim-common vim-gui-common
+sudo apt-get remove vim vim-runtime gvim vim-tiny \
+    vim-common vim-gui-common
 
 cd $MY_ENV
 hg clone https://code.google.com/p/vim/
