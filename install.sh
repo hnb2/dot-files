@@ -20,6 +20,7 @@ sudo apt-get install -y build-essential libssl-dev \
 cd $MY_ENV
 wget https://github.com/git/git/archive/v2.2.1.zip -o git.zip
 unzip git.zip
+rm git.zip
 cd git-*
 make prefix=/usr/local all
 sudo make prefix=/usr/local install
