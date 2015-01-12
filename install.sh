@@ -62,9 +62,6 @@ sudo update-alternatives --set editor /usr/bin/vim
 sudo update-alternatives --install /usr/bin/vi vi /usr/bin/vim 1
 sudo update-alternatives --set vi /usr/bin/vim
 
-#Printout the version of VIM to make sure the installation went well
-vim --version
-
 #Use my vimrc file
 cp .vimrc ~
 
