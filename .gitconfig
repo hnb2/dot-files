@@ -1,0 +1,9 @@
+[user]
+	name = Pierre Guillemot
+	email = pierreguillemot@yahoo.fr
+[merge]
+	tool = meld
+[core]
+	editor = vim
+[color]
+	diff = always
