@@ -3,9 +3,16 @@
 # will most likely overwrite everything you love and care about.
 # Better launch this on a fresh install...
 
-#The repository for downloaded softwares
-MY_ENV=~/Dev
 CUR_PATH=`pwd`
+
+#The default repository for downloaded softwares
+MY_ENV=~/Dev
+if [ -z "$1" ]
+then
+    echo 'No path given, will use the default one: $MY_ENV'
+else
+    $MY_ENV=$1
+fi
 
 if [ ! -d $MY_ENV ]
 then
