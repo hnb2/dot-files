@@ -33,7 +33,7 @@ sudo apt-get install -y build-essential libssl-dev \
 
 cd "$MY_ENV"
 echo "Downloading GIT..."
-curl -LSso git.zip https://github.com/git/git/archive/v2.2.1.zip
+curl -LSso git.zip https://github.com/git/git/archive/v2.7.0.zip
 unzip git.zip
 rm git.zip
 cd git-*
