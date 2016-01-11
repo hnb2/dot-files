@@ -50,4 +50,6 @@ endif
 
 filetype plugin on
 
+let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_typescript_checkers = ['tslint']
 execute pathogen#infect()
